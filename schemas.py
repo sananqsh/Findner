@@ -23,3 +23,14 @@ class PartnerCreate(PartnerBase):
 class Partner(PartnerBase):
     class Config:
         orm_mode = True
+
+class PartnerResponse(BaseModel):
+    id: str
+    tradingName: str
+    ownerName: str
+    document: str
+    coverageArea: str
+    address: str
+
+    class Config:
+        orm_mode = True
