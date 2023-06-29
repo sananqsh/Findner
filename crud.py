@@ -49,6 +49,20 @@ def get_partners(db:Session, skip: int = 0, limit: int = 20):
 
     return partners
 
+
+def get_nearest_partner(db: Session, lat: float, long: float):
+    # Construct a point based on the provided latitude and longitude
+    location_point = func.ST_SetSRID(func.ST_MakePoint(long, lat), 4326)
+
+    # Find the nearest partner whose coverage area includes the location
+    nearest_partner = query_partners(db).filter(
+        func.ST_Within(location_point, models.Partner.coverageArea)
+    ).order_by(
+        func.ST_Distance(models.Partner.address, location_point)
+    ).first()
+
+    return convert_to_pydantic_model(nearest_partner)
+
 def query_partners(db:Session):
     return db.query(
         models.Partner.id,

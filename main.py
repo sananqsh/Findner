@@ -28,3 +28,8 @@ def create_partner(partner: schemas.PartnerCreate, db: Session = Depends(get_db)
 def read_partners(skip: int = 0, limit: int = 20, db: Session = Depends(get_db)):
     partners = crud.get_partners(db, skip=skip, limit=limit)
     return partners
+
+@app.get("/partners/nearest", response_model=schemas.Partner)
+def read_nearest_partner(long: float, lat: float, db: Session = Depends(get_db)):
+    nearest_partner = crud.get_nearest_partner(db, long=long, lat=lat)
+    return nearest_partner
