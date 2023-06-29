@@ -16,11 +16,12 @@ def get_db():
     finally:
         db.close()
 
-@app.post("/partners/", response_model=schemas.PartnerResponse)
+@app.post("/partners/", response_model=schemas.Partner, status_code=201)
 def create_partner(partner: schemas.PartnerCreate, db: Session = Depends(get_db)):
     db_partner = crud.get_partner_by_document(db, document=partner.document)
     if db_partner:
         raise HTTPException(status_code=400, detail="Document already registered")
+
     return crud.create_partner(db=db, partner=partner)
 
 @app.get("/partners/", response_model=list[schemas.Partner])
