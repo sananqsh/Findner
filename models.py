@@ -1,5 +1,5 @@
 from sqlalchemy import Column, String
-from sqlalchemy.dialects.postgresql import JSONB
+from geoalchemy2 import Geometry
 
 from database import Base
 
@@ -10,5 +10,5 @@ class Partner(Base):
     tradingName = Column(String, index=True)
     ownerName = Column(String)
     document = Column(String, unique=True)
-    coverageArea = Column(JSONB)
-    address = Column(JSONB)
+    coverageArea = Column(Geometry(geometry_type='MULTIPOLYGON', srid=4326))
+    address = Column(Geometry(geometry_type='POINT', srid=4326))
