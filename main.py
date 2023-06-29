@@ -1,20 +1,11 @@
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
 
-import crud, models, schemas
-from database import SessionLocal, engine
+import crud, schemas
+from database import get_db, create_tables
 
-models.Base.metadata.create_all(bind=engine)
-
+create_tables()
 app = FastAPI()
-
-# Dependency
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
 
 @app.post("/partners/", response_model=schemas.Partner, status_code=201)
 def create_partner(partner: schemas.PartnerCreate, db: Session = Depends(get_db)):
@@ -32,4 +23,8 @@ def read_partners(skip: int = 0, limit: int = 20, db: Session = Depends(get_db))
 @app.get("/partners/nearest", response_model=schemas.Partner)
 def read_nearest_partner(long: float, lat: float, db: Session = Depends(get_db)):
     nearest_partner = crud.get_nearest_partner(db, long=long, lat=lat)
+    
+    if not nearest_partner:
+        raise HTTPException(status_code=404, detail="Partner not found")
+
     return nearest_partner

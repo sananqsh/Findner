@@ -63,6 +63,7 @@ def get_nearest_partner(db: Session, lat: float, long: float):
 
     return convert_to_pydantic_model(nearest_partner)
 
+
 def query_partners(db:Session):
     return db.query(
         models.Partner.id,
@@ -74,4 +75,5 @@ def query_partners(db:Session):
     )
 
 def convert_to_pydantic_model(db_partner):
-    return schemas.Partner(**dict(db_partner))
+    if db_partner:
+        return schemas.Partner(**dict(db_partner))
