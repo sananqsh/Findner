@@ -4,3 +4,4 @@ pydantic
 sqlalchemy
 geoalchemy2
 shapely
+psycopg2
