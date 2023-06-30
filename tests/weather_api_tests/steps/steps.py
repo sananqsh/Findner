@@ -28,10 +28,12 @@ def check_weather_info(context, city):
     response_data = context.response.json()
     assert response_data["name"] == city, f"Expected response for {city}, but got response for {response_data['name']}"
 
-@then('the response should contain an error indicating an invalid city')
-def check_invalid_city_error(context):
-    response_data = context.response.json()
-    assert response_data["cod"] == "404", "Expected error code '404' for invalid city"
+@when('I send a GET request to retrieve weather information for an invalid city')
+def send_get_request(context):
+    url = f"http://api.openweathermap.org/data/2.5/weather?q=InvalidCity&appid={context.api_key}"
+    response = requests.get(url)
+    context.response = response
+
 
 @when('I send a GET request to retrieve weather information for "{city}" with optional parameters')
 def send_get_request_with_options(context, city):

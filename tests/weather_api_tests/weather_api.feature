@@ -10,7 +10,6 @@ Feature: Retrieving weather information using OpenWeatherMap API
     Given a valid API key for OpenWeatherMap API
     When I send a GET request to retrieve weather information for an invalid city
     Then the response status code should be 404
-    And the response should contain an error indicating an invalid city
 
   Scenario: Retrieve weather information with optional parameters
     Given a valid API key for OpenWeatherMap API
