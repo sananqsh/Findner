@@ -1,10 +1,15 @@
 version: '3.8'
 
 services:
-  web:
+  web1:
     build: .
-    ports:
-      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+
+  web2:
+    build: .
     volumes:
       - .:/app
     depends_on:
@@ -16,6 +21,16 @@ services:
       - .env
     volumes:
       - postgres_data:/var/lib/postgresql/data/
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "8000:8000"
+    depends_on:
+      - web1
+      - web2
 
 volumes:
   postgres_data:
