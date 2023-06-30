@@ -85,8 +85,32 @@ docker-compose up -d --build
 6. You can call APIs from your local!
 See the `/docs` route for Swagger documentations of APIs (for example if the project is on local: `http://127.0.0.1:8000/docs`)
 
+<br>
+
 # Tests
-*Under construction*
+
+In order to run tests, you have to have your containers up if they're not:
+
+> This is assuming you've already built the services with `--build` option
+
+```bash
+docker-compose up -d
+```
+
+Then `docker exec` into to a web application instance in interactive mode and run bash:
+
+```bash
+docker exec -ti findnder_web1_1 bash
+```
+
+Run the tests:
+```bash
+behave -k tests/partner_api_tests/ 
+```
+And for [OpenWeatherApi](http://openweathermap.org/current) tests:
+```bash
+behave -k tests/weather_api_tests/ 
+```
 
 # Deployment
 The `docker-compose.yml` is provided in a way that we can deploy a new version of the web application without downtime.

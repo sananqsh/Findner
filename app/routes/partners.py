@@ -13,7 +13,7 @@ def create_partner(partner: schemas.PartnerCreate, db: Session = Depends(get_db)
         raise HTTPException(status_code=400, detail="Document already registered")
     
     if crud_partners.get_partner(db, partner_id=partner.id):
-        raise HTTPException(status_code=400, detail="id already exists")
+        raise HTTPException(status_code=400, detail="Id already exists")
 
     return crud_partners.create_partner(db=db, partner=partner)
 
