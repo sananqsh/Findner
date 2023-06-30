@@ -4,8 +4,8 @@ from shapely.geometry import shape
 
 from sqlalchemy.orm import Session
 
-import schemas
-from models.partner import PartnerModel
+import app.schemas as schemas
+from app.models.partner import PartnerModel
 
 def get_partner(db: Session, partner_id: str):
     result = query_partners(db).filter(PartnerModel.id == partner_id).first()

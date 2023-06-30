@@ -1,7 +1,7 @@
 from sqlalchemy import Column, String
 from geoalchemy2 import Geometry
 
-from database import Base
+from app.database import Base
 
 class PartnerModel(Base):
     __tablename__ = "partners"
