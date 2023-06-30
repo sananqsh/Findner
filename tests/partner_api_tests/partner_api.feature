@@ -2,15 +2,16 @@ Feature: Partner API
 
   Scenario: Create a partner
     When I create a partner with the following details:
-      | id | tradingName     | ownerName | document             | coverageArea | address           |
-      | 1  | Test Partner    | John Doe  | 123456789/abcdef.something | MultiPolygon | -46.57421, -21.785741 |
+      | id   | tradingName   | ownerName   | document              | coverageArea                                                                                 | address                                                   |
+      | 3216 | Bar Nem Tanto | Lucas Satto | 32106.269.410/0001-19 | {"type": "MultiPolygon", "coordinates": [[[[50, 50], [50, 0], [0, 0], [0, 50], [50, 50]]]]}  | {"type": "Point", "coordinates": [-43.97661, -20.937042]} |
     Then the response status code should be 201
     And the response should contain the following details:
-      | field           | value                  |
-      | id              | 1                      |
-      | tradingName     | Test Partner           |
-      | document        | 123456789/abcdef.something |
-      | coverageArea    | MultiPolygon           |
+      | field        | value                 |
+      | id           | 3216                  |
+      | tradingName  | Bar Nem Tanto         |
+      | document     | 32106.269.410/0001-19 |
+      | coverageArea | MultiPolygon          |
+
 
   Scenario: Create a partner with duplicate document
     When I create a partner with the following details:
