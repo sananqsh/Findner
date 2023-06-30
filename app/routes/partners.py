@@ -23,8 +23,8 @@ def read_partners(skip: int = 0, limit: int = 20, db: Session = Depends(get_db))
     return partners
 
 @router.get("/nearest", response_model=schemas.Partner)
-def read_nearest_partner(long: float, lat: float, db: Session = Depends(get_db)):
-    nearest_partner = crud_partners.get_nearest_partner(db, long=long, lat=lat)
+def read_nearest_covering_partner(long: float, lat: float, db: Session = Depends(get_db)):
+    nearest_partner = crud_partners.get_nearest_covering_partner(db, long=long, lat=lat)
     
     if not nearest_partner:
         raise HTTPException(status_code=404, detail="Partner not found")

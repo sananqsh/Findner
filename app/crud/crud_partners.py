@@ -51,7 +51,7 @@ def get_partners(db:Session, skip: int = 0, limit: int = 20):
     return partners
 
 
-def get_nearest_partner(db: Session, lat: float, long: float):
+def get_nearest_covering_partner(db: Session, lat: float, long: float):
     # Construct a point based on the provided latitude and longitude
     location_point = func.ST_SetSRID(func.ST_MakePoint(long, lat), 4326)
 
