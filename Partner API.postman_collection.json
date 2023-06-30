@@ -1,0 +1,275 @@
+{
+	"info": {
+		"_postman_id": "28f65d69-e062-46ac-9b21-6071633cd755",
+		"name": "Partner API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23343009"
+	},
+	"item": [
+		{
+			"name": "partners",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/partners",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"partners"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "partners",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/partners",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"partners"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Thu, 29 Jun 2023 14:08:51 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "1753"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"1\",\n        \"tradingName\": \"Adega Osasco\",\n        \"ownerName\": \"Ze da Ambev\",\n        \"document\": \"02.453.716/000170\",\n        \"coverageArea\": {\n            \"type\": \"MultiPolygon\",\n            \"coordinates\": [\n                [\n                    [\n                        [\n                            -43.36556,\n                            -22.99669\n                        ],\n                        [\n                            -43.36539,\n                            -23.01928\n                        ],\n                        [\n                            -43.26583,\n                            -23.01802\n                        ],\n                        [\n                            -43.25724,\n                            -23.00649\n                        ],\n                        [\n                            -43.23355,\n                            -23.00127\n                        ],\n                        [\n                            -43.2381,\n                            -22.99716\n                        ],\n                        [\n                            -43.23866,\n                            -22.99649\n                        ],\n                        [\n                            -43.24063,\n                            -22.99756\n                        ],\n                        [\n                            -43.24634,\n                            -22.99736\n                        ],\n                        [\n                            -43.24677,\n                            -22.99606\n                        ],\n                        [\n                            -43.24067,\n                            -22.99381\n                        ],\n                        [\n                            -43.24886,\n                            -22.99121\n                        ],\n                        [\n                            -43.25617,\n                            -22.99456\n                        ],\n                        [\n                            -43.25625,\n                            -22.99203\n                        ],\n                        [\n                            -43.25346,\n                            -22.99065\n                        ],\n                        [\n                            -43.29599,\n                            -22.98283\n                        ],\n                        [\n                            -43.3262,\n                            -22.96481\n                        ],\n                        [\n                            -43.33427,\n                            -22.96402\n                        ],\n                        [\n                            -43.33616,\n                            -22.96829\n                        ],\n                        [\n                            -43.342,\n                            -22.98157\n                        ],\n                        [\n                            -43.34817,\n                            -22.97967\n                        ],\n                        [\n                            -43.35142,\n                            -22.98062\n                        ],\n                        [\n                            -43.3573,\n                            -22.98084\n                        ],\n                        [\n                            -43.36522,\n                            -22.98032\n                        ],\n                        [\n                            -43.36696,\n                            -22.98422\n                        ],\n                        [\n                            -43.36717,\n                            -22.98855\n                        ],\n                        [\n                            -43.36636,\n                            -22.99351\n                        ],\n                        [\n                            -43.36556,\n                            -22.99669\n                        ]\n                    ]\n                ]\n            ]\n        },\n        \"address\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n                -43.297337,\n                -23.013538\n            ]\n        }\n    },\n    {\n        \"id\": \"2\",\n        \"tradingName\": \"Adega Pinheiros\",\n        \"ownerName\": \"Ze da Silva\",\n        \"document\": \"04.433.714/0001-44\",\n        \"coverageArea\": {\n            \"type\": \"MultiPolygon\",\n            \"coordinates\": [\n                [\n                    [\n                        [\n                            -49.36299,\n                            -25.4515\n                        ],\n                        [\n                            -49.35334,\n                            -25.45065\n                        ],\n                        [\n                            -49.33675,\n                            -25.4429\n                        ],\n                        [\n                            -49.32291,\n                            -25.4398\n                        ],\n                        [\n                            -49.3188,\n                            -25.44089\n                        ],\n                        [\n                            -49.31064,\n                            -25.43903\n                        ],\n                        [\n                            -49.29828,\n                            -25.43391\n                        ],\n                        [\n                            -49.29751,\n                            -25.43377\n                        ],\n                        [\n                            -49.29588,\n                            -25.43322\n                        ],\n                        [\n                            -49.29215,\n                            -25.43189\n                        ],\n                        [\n                            -49.28855,\n                            -25.43043\n                        ],\n                        [\n                            -49.28662,\n                            -25.42958\n                        ],\n                        [\n                            -49.28424,\n                            -25.42865\n                        ],\n                        [\n                            -49.25803,\n                            -25.42853\n                        ],\n                        [\n                            -49.25533,\n                            -25.42279\n                        ],\n                        [\n                            -49.25585,\n                            -25.4169\n                        ],\n                        [\n                            -49.25524,\n                            -25.40981\n                        ],\n                        [\n                            -49.25761,\n                            -25.40403\n                        ],\n                        [\n                            -49.25524,\n                            -25.39787\n                        ],\n                        [\n                            -49.26005,\n                            -25.39178\n                        ],\n                        [\n                            -49.26078,\n                            -25.3819\n                        ],\n                        [\n                            -49.26267,\n                            -25.37348\n                        ],\n                        [\n                            -49.25952,\n                            -25.37003\n                        ],\n                        [\n                            -49.25971,\n                            -25.36597\n                        ],\n                        [\n                            -49.26301,\n                            -25.35774\n                        ],\n                        [\n                            -49.26468,\n                            -25.34742\n                        ],\n                        [\n                            -49.30623,\n                            -25.35119\n                        ],\n                        [\n                            -49.36262,\n                            -25.36639\n                        ],\n                        [\n                            -49.37043,\n                            -25.3798\n                        ],\n                        [\n                            -49.36743,\n                            -25.40593\n                        ],\n                        [\n                            -49.36837,\n                            -25.42578\n                        ],\n                        [\n                            -49.36299,\n                            -25.4515\n                        ]\n                    ]\n                ]\n            ]\n        },\n        \"address\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n                -49.33425,\n                -25.380995\n            ]\n        }\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "nearest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/partners/nearest?lat=30&long=30",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"partners",
+						"nearest"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "30"
+						},
+						{
+							"key": "long",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "nearest",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/partners/nearest?lat=30&long=30",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"partners",
+								"nearest"
+							],
+							"query": [
+								{
+									"key": "lat",
+									"value": "30"
+								},
+								{
+									"key": "long",
+									"value": "30"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.25.1"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 30 Jun 2023 22:01:52 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "297"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"2\",\n    \"tradingName\": \"Harry Somethinger\",\n    \"ownerName\": \"Ab Boss\",\n    \"document\": \"987/abc.something-new\",\n    \"coverageArea\": {\n        \"type\": \"MultiPolygon\",\n        \"coordinates\": [\n            [\n                [\n                    [\n                        30,\n                        20\n                    ],\n                    [\n                        45,\n                        40\n                    ],\n                    [\n                        10,\n                        40\n                    ],\n                    [\n                        30,\n                        20\n                    ]\n                ]\n            ],\n            [\n                [\n                    [\n                        15,\n                        5\n                    ],\n                    [\n                        40,\n                        10\n                    ],\n                    [\n                        10,\n                        20\n                    ],\n                    [\n                        5,\n                        10\n                    ],\n                    [\n                        15,\n                        5\n                    ]\n                ]\n            ]\n        ]\n    },\n    \"address\": {\n        \"type\": \"Point\",\n        \"coordinates\": [\n            -20.57421,\n            -21.785741\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "partner",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"w3216\",\n    \"tradingName\": \"Bar Nem Tanto\",\n    \"ownerName\": \"Lucas Satto\",\n    \"document\": \"w32106.269.410/0001-19\",\n    \"coverageArea\": {\"type\": \"MultiPolygon\", \"coordinates\": [[[[50, 50], [50, 0], [0, 0], [0, 50], [50, 50]]]]},\n    \"address\": {\"type\": \"Point\", \"coordinates\": [-43.97661, -20.937042]}\n}"
+				},
+				"url": {
+					"raw": "{{url}}/partners",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"partners"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "partner",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"1\",\n    \"tradingName\": \"Adega Osasco\",\n    \"ownerName\": \"Ze da Ambev\",\n    \"document\": \"02.453.716/000170\",\n    \"coverageArea\": {\n        \"type\": \"MultiPolygon\",\n        \"coordinates\": [\n        [\n            [\n                [\n                    -43.36556,\n                    -22.99669\n                ],\n                [\n                    -43.36539,\n                    -23.01928\n                ],\n                [\n                    -43.26583,\n                    -23.01802\n                ],\n                [\n                    -43.25724,\n                    -23.00649\n                ],\n                [\n                    -43.23355,\n                    -23.00127\n                ],\n                [\n                    -43.2381,\n                    -22.99716\n                ],\n                [\n                    -43.23866,\n                    -22.99649\n                ],\n                [\n                    -43.24063,\n                    -22.99756\n                ],\n                [\n                    -43.24634,\n                    -22.99736\n                ],\n                [\n                    -43.24677,\n                    -22.99606\n                ],\n                [\n                    -43.24067,\n                    -22.99381\n                ],\n                [\n                    -43.24886,\n                    -22.99121\n                ],\n                [\n                    -43.25617,\n                    -22.99456\n                ],\n                [\n                    -43.25625,\n                    -22.99203\n                ],\n                [\n                    -43.25346,\n                    -22.99065\n                ],\n                [\n                    -43.29599,\n                    -22.98283\n                ],\n                [\n                    -43.3262,\n                    -22.96481\n                ],\n                [\n                    -43.33427,\n                    -22.96402\n                ],\n                [\n                    -43.33616,\n                    -22.96829\n                ],\n                [\n                    -43.342,\n                    -22.98157\n                ],\n                [\n                    -43.34817,\n                    -22.97967\n                ],\n                [\n                    -43.35142,\n                    -22.98062\n                ],\n                [\n                    -43.3573,\n                    -22.98084\n                ],\n                [\n                    -43.36522,\n                    -22.98032\n                ],\n                [\n                    -43.36696,\n                    -22.98422\n                ],\n                [\n                    -43.36717,\n                    -22.98855\n                ],\n                [\n                    -43.36636,\n                    -22.99351\n                ],\n                [\n                    -43.36556,\n                    -22.99669\n                ]\n            ]\n        ]\n        ]\n    },\n    \"address\": {\n        \"type\": \"Point\",\n        \"coordinates\": [\n        -43.297337,\n        -23.013538\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/partners",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"partners"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Thu, 29 Jun 2023 14:07:27 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "831"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"1\",\n    \"tradingName\": \"Adega Osasco\",\n    \"ownerName\": \"Ze da Ambev\",\n    \"document\": \"02.453.716/000170\",\n    \"coverageArea\": {\n        \"type\": \"MultiPolygon\",\n        \"coordinates\": [\n            [\n                [\n                    [\n                        -43.36556,\n                        -22.99669\n                    ],\n                    [\n                        -43.36539,\n                        -23.01928\n                    ],\n                    [\n                        -43.26583,\n                        -23.01802\n                    ],\n                    [\n                        -43.25724,\n                        -23.00649\n                    ],\n                    [\n                        -43.23355,\n                        -23.00127\n                    ],\n                    [\n                        -43.2381,\n                        -22.99716\n                    ],\n                    [\n                        -43.23866,\n                        -22.99649\n                    ],\n                    [\n                        -43.24063,\n                        -22.99756\n                    ],\n                    [\n                        -43.24634,\n                        -22.99736\n                    ],\n                    [\n                        -43.24677,\n                        -22.99606\n                    ],\n                    [\n                        -43.24067,\n                        -22.99381\n                    ],\n                    [\n                        -43.24886,\n                        -22.99121\n                    ],\n                    [\n                        -43.25617,\n                        -22.99456\n                    ],\n                    [\n                        -43.25625,\n                        -22.99203\n                    ],\n                    [\n                        -43.25346,\n                        -22.99065\n                    ],\n                    [\n                        -43.29599,\n                        -22.98283\n                    ],\n                    [\n                        -43.3262,\n                        -22.96481\n                    ],\n                    [\n                        -43.33427,\n                        -22.96402\n                    ],\n                    [\n                        -43.33616,\n                        -22.96829\n                    ],\n                    [\n                        -43.342,\n                        -22.98157\n                    ],\n                    [\n                        -43.34817,\n                        -22.97967\n                    ],\n                    [\n                        -43.35142,\n                        -22.98062\n                    ],\n                    [\n                        -43.3573,\n                        -22.98084\n                    ],\n                    [\n                        -43.36522,\n                        -22.98032\n                    ],\n                    [\n                        -43.36696,\n                        -22.98422\n                    ],\n                    [\n                        -43.36717,\n                        -22.98855\n                    ],\n                    [\n                        -43.36636,\n                        -22.99351\n                    ],\n                    [\n                        -43.36556,\n                        -22.99669\n                    ]\n                ]\n            ]\n        ]\n    },\n    \"address\": {\n        \"type\": \"Point\",\n        \"coordinates\": [\n            -43.297337,\n            -23.013538\n        ]\n    }\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		}
+	]
+}
