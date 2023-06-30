@@ -5,3 +5,7 @@ sqlalchemy
 geoalchemy2
 shapely
 psycopg2
+pytest
+pytest-bdd
+requests
+httpx
