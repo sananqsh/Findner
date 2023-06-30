@@ -9,8 +9,8 @@ def valid_api_key(context):
     context.api_key = "YOUR_API_KEY"  # Replace with your actual API key
 
 
-@when('I create a partner with the following details:')
-def create_partner(context):
+@when('I create a partner with the following details')
+def create_partner_with_details(context):
     payload = context.table.rows[0].as_dict()
     response = requests.post(api_url, json=payload)
     context.response = response
@@ -21,7 +21,7 @@ def check_status_code(context, status_code):
     assert context.response.status_code == status_code, f"Expected status code {status_code}, but got {context.response.status_code}"
 
 
-@then('the response should contain the following details:')
+@then('the response should contain the following details')
 def check_response_details(context):
     expected_details = context.table.rows[0].as_dict()
     response_json = context.response.json()
@@ -35,6 +35,9 @@ def read_partners(context):
     response = requests.get(api_url)
     context.response = response
 
+@then('the response should be a list')
+def check_response_details(context):
+    assert isinstance(context.response, list) == True
 
 @when('I read the nearest covering partner with longitude "{longitude}" and latitude "{latitude}"')
 def read_nearest_covering_partner(context, longitude, latitude):
