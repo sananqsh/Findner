@@ -39,7 +39,7 @@ def test_create_partner():
     payload["document"] += "new-document/1234.notDuplicate"
     response = client.post("/partners/", json=payload)
     assert response.status_code == 400
-    assert response.json()["detail"] == "id already exists"
+    assert response.json()["detail"] == "Id already exists"
 
     # Resolved duplication scenario
     payload["id"] = "11"
