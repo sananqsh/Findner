@@ -76,4 +76,4 @@ def query_partners(db:Session):
 
 def convert_to_pydantic_model(db_partner):
     if db_partner:
-        return schemas.Partner(**dict(db_partner))
+        return schemas.Partner(**db_partner._asdict())
