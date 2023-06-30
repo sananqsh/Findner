@@ -4,14 +4,15 @@ from shapely.geometry import shape
 
 from sqlalchemy.orm import Session
 
-import models, schemas
+import schemas
+from models.partner import PartnerModel
 
 def get_partner(db: Session, partner_id: str):
-    result = query_partners(db).filter(models.Partner.id == partner_id).first()
+    result = query_partners(db).filter(PartnerModel.id == partner_id).first()
     return convert_to_pydantic_model(result)
 
 def get_partner_by_document(db: Session, document: str):
-    result = query_partners(db).filter(models.Partner.document == document).first()
+    result = query_partners(db).filter(PartnerModel.document == document).first()
     if result:
         return convert_to_pydantic_model(result)
 
@@ -24,7 +25,7 @@ def create_partner(db: Session, partner: schemas.PartnerCreate):
     address = shape(partner.address.dict())
     address_wkt = WKTElement(address.wkt, srid=4326)
 
-    db_partner = models.Partner(
+    db_partner = PartnerModel(
         id=partner.id,
         tradingName=partner.tradingName,
         ownerName=partner.ownerName,
@@ -37,7 +38,7 @@ def create_partner(db: Session, partner: schemas.PartnerCreate):
     db.commit()
     db.refresh(db_partner)
 
-    result = query_partners(db).filter(models.Partner.id == db_partner.id).first()
+    result = query_partners(db).filter(PartnerModel.id == db_partner.id).first()
     return convert_to_pydantic_model(result)
 
 def get_partners(db:Session, skip: int = 0, limit: int = 20):
@@ -56,9 +57,9 @@ def get_nearest_partner(db: Session, lat: float, long: float):
 
     # Find the nearest partner whose coverage area includes the location
     nearest_partner = query_partners(db).filter(
-        func.ST_Within(location_point, models.Partner.coverageArea)
+        func.ST_Within(location_point, PartnerModel.coverageArea)
     ).order_by(
-        func.ST_Distance(models.Partner.address, location_point)
+        func.ST_Distance(PartnerModel.address, location_point)
     ).first()
 
     return convert_to_pydantic_model(nearest_partner)
@@ -66,12 +67,12 @@ def get_nearest_partner(db: Session, lat: float, long: float):
 
 def query_partners(db:Session):
     return db.query(
-        models.Partner.id,
-        models.Partner.tradingName,
-        models.Partner.ownerName,
-        models.Partner.document,
-        func.ST_AsGeoJSON(models.Partner.coverageArea).label('coverageArea'),
-        func.ST_AsGeoJSON(models.Partner.address).label('address')
+        PartnerModel.id,
+        PartnerModel.tradingName,
+        PartnerModel.ownerName,
+        PartnerModel.document,
+        func.ST_AsGeoJSON(PartnerModel.coverageArea).label('coverageArea'),
+        func.ST_AsGeoJSON(PartnerModel.address).label('address')
     )
 
 def convert_to_pydantic_model(db_partner):

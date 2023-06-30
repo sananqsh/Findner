@@ -3,7 +3,7 @@ from geoalchemy2 import Geometry
 
 from database import Base
 
-class Partner(Base):
+class PartnerModel(Base):
     __tablename__ = "partners"
 
     id = Column(String, primary_key=True, index=True)
