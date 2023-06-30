@@ -12,10 +12,8 @@ services:
 
   db:
     image: postgis/postgis:latest
-    environment:
-      POSTGRES_USER: fastapi
-      POSTGRES_PASSWORD: fastapipass
-      POSTGRES_DB: fastapidb
+    env_file:
+      - .env
     volumes:
       - postgres_data:/var/lib/postgresql/data/
 
