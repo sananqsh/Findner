@@ -47,3 +47,21 @@ def read_nearest_covering_partner(context, longitude, latitude):
     }
     response = requests.get(f"{api_url}/nearest", params=query_params)
     context.response = response
+
+# @when('I read the nearest covering partner with longitude "{longitude}" and latitude "{latitude}"')
+# def read_nearest_covering_partner(context, longitude, latitude):
+#     query_params = {
+#         "long": longitude,
+#         "lat": latitude
+#     }
+#     response = requests.get(f"{api_url}/nearest", params=query_params)
+#     context.response = response
+
+# @then(u'the response should contain the following details')
+# def step_impl(context):
+#     raise NotImplementedError(u'STEP: Then the response should contain the following details')
+
+
+# @then(u'the response should be a list')
+# def step_impl(context):
+#     raise NotImplementedError(u'STEP: Then the response should be a list')
