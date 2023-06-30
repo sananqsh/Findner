@@ -105,7 +105,11 @@ docker exec -ti findnder_web1_1 bash
 
 Run the tests:
 ```bash
-python -m pytest
+behave -k tests/partner_api_tests/ 
+```
+And for [OpenWeatherApi](http://openweathermap.org/current) tests:
+```bash
+behave -k tests/weather_api_tests/ 
 ```
 
 # Deployment
