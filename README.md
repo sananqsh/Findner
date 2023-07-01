@@ -2,7 +2,10 @@
 This is a back end project that works with `Partner`s; creating, loading, and finding their nearest given a coordinations.
 It uses FastAPI and PostgreSQL.
 
-Find + Partner -> 🔥Findner🔥 (I know it sounds like a dating app... But it's not...)
+Find + Partner -> 🔥Findner🔥
+
+# Demo
+Link to video in [Youtube](https://youtu.be/mY5Cph2U32s), [Aparat](https://www.aparat.com/v/x4Df9)
 
 # Installation
 0. Open your terminal (I used `bash`)
@@ -24,7 +27,7 @@ cp .env.example .env
 <summary>Create PostgreSQL user and database</summary>
 
   
-  First, you need to create a PostgreSQL user that you can use to interact with your database. You can do this from the PostgreSQL shell. The following steps are for a Linux-based system:
+  You need to create a [PostgreSQL](https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart) user that you can use to interact with your database. You can do this from the PostgreSQL shell. The following steps are for a Linux-based system:
   
   - Log into PostgreSQL shell
   
@@ -50,7 +53,7 @@ cp .env.example .env
   GRANT ALL PRIVILEGES ON DATABASE yourdbname TO yourusername;
   ```
   
-  - Optional: Sometimes PostgreSQL is configured to disallow non-superusers from creating databases or schema, and you might need to modify these configurations to suit your needs, or alter your user role to super user:
+  > Sometimes PostgreSQL is configured to disallow non-superusers from creating databases or schema, and you might need to modify these configurations to suit your needs, or alter your user role to super user:
   
   ```sql
   ALTER USER yourusername WITH SUPERUSER
@@ -73,11 +76,41 @@ cp .env.example .env
   DATABASE_HOST=db
   ```
 
+  <hr>
+  - Run this
+  
+  ```bash
+    psql -U yourusername -d yourpassword
+  ```
+
+> If got this error: `psql: error: connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  Peer authentication failed for user "yourusername"`
+> 
+> Make sure the postgres service is up: `sudo service postgresql status`
+> 
+> Try locating `pg_conf.hba`; its usual locations are `/etc/postgresql/[version]/main/pg_hba.conf` and `/var/lib/pgsql/data/pg_hba.conf`
+> you need to change the line:
+>
+> ```
+> local   all             all                                peer
+> ```
+> 
+>  to
+>
+> ```
+> local   all             all                                md5
+> ```
+> 
+> and then restart the service:
+> 
+> ```
+> sudo service postgresql restart
+> ```
+
 </details>
 
 <br>
 
-5. Run docker-compose (see [this](https://docs.docker.com/engine/install/) and [this](https://docs.docker.com.zh.xy2401.com/v17.12/compose/install/) if not installed)
+5. Run docker-compose (see [this](https://docs.docker.com/engine/install/) and [this](https://docs.docker.com.zh.xy2401.com/v17.12/compose/install/) if not installed; compose version has to be at least 1.25.5)
 > The `--build` is only for first time docker-composing.
 ```bash
 docker-compose up -d --build
@@ -100,7 +133,7 @@ docker-compose up -d
 Then `docker exec` into to a web application instance in interactive mode and run bash:
 
 ```bash
-docker exec -ti findnder_web1_1 bash
+docker exec -ti findner_web1_1 bash
 ```
 
 Run the tests:
