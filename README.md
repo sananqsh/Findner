@@ -1,6 +1,9 @@
 # Findner
-This is a back end project that works with `Partner`s; creating, loading, and finding their nearest given a coordinations.
+This is a back end project that works with service Partners; creating, loading, and finding their nearest given a coordinations.
 It uses FastAPI and PostgreSQL.
+
+Service partners help us scale our services.
+The code can be used in logistics to find best Pick Up/Drop Off points for a package (e.g. Ganje and its lockers and PUDO points). 
 
 Find + Partner -> 🔥Findner🔥
 
